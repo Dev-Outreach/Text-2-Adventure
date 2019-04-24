@@ -1,0 +1,115 @@
+{
+    "StartingScene": "Beach",
+    "Scenes": [
+        {
+            "Name": "Beach",
+            "Description": ["Beach Text", "Has rod text"],
+            "Choices": ["Nap", "Go to the Dock"]
+        },
+        {
+            "Name": "Dock",
+            "Description": ["Dock Description", "Has rod option"],
+            "Choices": ["Take Rod", "Leave Rod", "Go to Beach", "Do some fishing"]
+        }
+    ],
+    "Choices": {
+        "Nap": {
+            "OptionText": "Doze in the sun.",
+            "Description": "The sound of the sea drowns out your thoughts as you drift off to sleep. You awaken feeling refreshed!",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "Beach"
+        },
+        "Go to the Dock": {
+            "OptionText": "Head to the dock to fish.",
+            "Description": "You walk along the shore until you reach an old wooden dock. The bleached wood feels soft on your feet.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "Dock"
+        },
+        "Take Rod": {
+            "OptionText": "Take the fishing rod.",
+            "Description": "You pick up the fishing rod. It feels lighter than it looks.",
+            "Checkpoints": [
+                {
+                    "Name": "Has Rod",
+                    "Value": false
+                }
+            ],
+            "FlipCheckpoints": ["Has Rod"],
+            "Scene": "Dock"
+        },
+        "Leave Rod": {
+            "OptionText": "Return the rod",
+            "Description": "You put the rod back where you found it, so someone else can use it.",
+            "Checkpoints": [
+                {
+                    "Name": "Has Rod",
+                    "Value": true
+                }
+            ],
+            "FlipCheckpoints": ["Has Rod"],
+            "Scene": "Dock"
+        },
+        "Go to Beach": {
+            "OptionText": "Go back to the beach",
+            "Description": "You head back down the shore to your spot in the sand.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "Beach"
+        },
+        "Do some fishing": {
+            "OptionText": "Fish for a while",
+            "Description": "You cast the rod. After a while, you feel a tug on it, and pull in your catch!",
+            "Checkpoints": [
+                {
+                    "Name": "Has Rod",
+                    "Value": true
+                }
+            ],
+            "FlipCheckpoints": [],
+            "Scene": "Dock"
+        }
+
+    },
+    "CheckpointNames": [
+        {
+            "Name": "Has Rod",
+            "Value": false
+        }
+    ],
+    "Text": {
+        "Beach Text": {
+            "TrueText": "You're laying on a towel on the beach. The bright blue water laps at the soft sand meters away.",
+            "FalseText": "",
+            "Checkpoints": []
+        },
+        "Has rod text": {
+            "TrueText": "You have a fishing rod by your side.",
+            "FalseText": "",
+            "Checkpoints": [
+                {
+                    "Name": "Has Rod",
+                    "Value": true
+                }
+            ]
+        },
+        "Dock Description": {
+            "TrueText": "You stand on a solid dock made of wood which has bleached in the sun.",
+            "FalseText": "",
+            "Checkpoints": []
+        },
+        "Has rod option": {
+            "TrueText": "You hold your fishing rod by yourside, and comtemplate using it",
+            "FalseText": "There is a fishing rod sitting on the dock",
+            "Checkpoints": [
+                {
+                    "Name": "Has Rod",
+                    "Value": true
+                }
+            ]
+        }
+
+
+    }
+}

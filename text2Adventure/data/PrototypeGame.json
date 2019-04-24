@@ -1,0 +1,172 @@
+{
+    "StartingScene": "S1",
+    "Scenes": [
+        {
+            "Name": "S1", 
+            "Description": ["S1T1"],
+            "Choices": ["S1C1", "S1C2"]
+        },
+        {
+            "Name": "S2",
+            "Description": ["S2T1", "S2T2"],
+            "Choices": ["S2C1", "S2C2", "S2C3"]
+        },
+        {
+            "Name": "S3",
+            "Description": ["S3T1", "S3T2"],
+            "Choices": ["S3C1", "S3C2"]
+        },
+        {
+            "Name": "S4",
+            "Description": ["S4T1", "S4T2"],
+            "Choices": ["S4C1", "S4C2"]
+        },
+        {
+            "Name": "S5",
+            "Description": ["S5T1"],
+            "Choices": []
+        }
+    ],
+    "Choices": {
+        "S1C1": {
+            "OptionText": "Sit and rest",
+            "Description": "You sit and rest for a while, until the ground becomes uncomfortable, and you stand up again.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "S1"
+        },
+        "S1C2": {
+            "OptionText": "Go North",
+            "Description": "You enter through the red door to the North.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "S2"
+        },
+        "S2C1": {
+            "OptionText": "Go West.",
+            "Description": "You enter the door to the West.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "S3"
+        },
+        "S2C2": {
+            "OptionText": "Go South.",
+            "Description": "You enter the door to the South.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "S1"
+        },
+        "S2C3": {
+            "OptionText": "Go East.",
+            "Description": "You enter the door to the East.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "S4"
+        },
+        "S3C1": {
+            "OptionText": "Go East.",
+            "Description": "You enter the door to the East.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "S2"
+        },
+        "S3C2": {
+            "OptionText": "Grab the key.",
+            "Description": "You grab the key off of the pedestal.",
+            "Checkpoints": [
+                {
+                "Name": "HasKey",
+                "Value": false
+                }
+            ],
+            "FlipCheckpoints": ["HasKey"],
+            "Scene": "S3"
+        },
+        "S4C1": {
+            "OptionText": "Go North.",
+            "Description": "You unlock the metal door using the key you found.",
+            "Checkpoints": [
+                {
+                    "Name": "HasKey",
+                    "Value": true
+                },
+                {
+                    "Name": "DoorUnlocked",
+                    "Value": false
+                }
+            ],
+            "FlipCheckpoints": ["DoorUnlocked"],
+            "Scene": "S5"
+        },
+        "S4C2": {
+            "OptionText": "Go West.",
+            "Description": "You enter the door to the West.",
+            "Checkpoints": [],
+            "FlipCheckpoints": [],
+            "Scene": "S2"
+        }
+    },
+    "CheckpointNames": [
+        {"Name": "HasKey",
+        "Value": false},
+        {"Name": "DoorUnlocked",
+        "Value": false}
+        ],
+    "Text": {
+        "S1T1": {
+            "TrueText": "You find yourself in a dim room with a red door to your North.",
+            "FalseText": "",
+            "Checkpoints": []
+        },
+        "S2T1": {
+            "TrueText": "You're in a room with red walls and a chandelier hanging in the middle.",
+            "FalseText": "",
+            "Checkpoints": []
+        },
+        "S2T2": {
+            "TrueText": "To your West is a massive steel door, to your South is a red door, to your East is a plastic door.",
+            "FalseText": "",
+            "Checkpoints": []
+        },
+        "S3T1": {
+            "TrueText": "You're in a small, cold room. To your East is the steel door from which you entered. ",
+            "FalseText": "",
+            "Checkpoints": []
+        },
+        "S3T2": {
+            "TrueText": "In the middle of the room is the empty pedestal from which you took the key. ",
+            "FalseText": "In the middle of the room is a pedestal with a key on it.",
+            "Checkpoints": [
+                {
+                    "Name": "HasKey",
+                    "Value": true
+                }
+            ]
+        },
+        "S4T1": {
+            "TrueText": "You're in a room with a plastic door to your West and a locked metal door to your North. ",
+            "FalseText": "",
+            "Checkpoints": []
+        },
+        "S4T2": {
+            "TrueText": "You remember the key you picked up earlier!",
+            "FalseText": "It looks like you will need to find a key for the door.",
+            "Checkpoints": [
+                {
+                    "Name": "HasKey",
+                    "Value": true
+                }
+            ]
+        },
+        "S5T1": {
+            "TrueText": "Congratulations! You won!",
+            "FalseText": "",
+            "Checkpoints": [
+                {
+                    "Name": "DoorUnlocked",
+                    "Value": true
+                }
+            ]
+        }
+    }
+}
